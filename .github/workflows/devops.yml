@@ -13,18 +13,21 @@ jobs:
       - name: Code checkout                    # name of the step inside the job
         uses: actions/checkout@v7   # action      # Lastly inside the jobs we have steps and then inside steps we have actions
   build:
+    needs: code
     runs-on: ubuntu-latest  #runner
     steps:
       - name: Code Build
         run: echo "Code build done"          #action
   
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Code Test
         run: echo "Code Test done"
         
   deploy:
+    needs: test                     # we add this needs so that the pipeline happens in a sequence from code to build to test to deploy
     runs-on: ubuntu-latest
     steps:
       - name: Code Deploy
