@@ -1,0 +1,32 @@
+# WORKFLOW ###
+# Name of the workflow ##
+name: CICD    
+
+on: push     #on push when the developer pushes the code
+
+# Jobs ##        # main jobs in a workflow are code, build, test and deploy
+jobs:
+  code:
+  # Steps ###
+    runs-on: ubuntu-latest     # We require an OS for running the workflow and linux is the best and most widely used OS so hence we are using Ubuntu 
+    steps:
+      - name: Code checkout                    # name of the step inside the job
+        run: echo "Code checkout done"         # Lastly inside the jobs we have steps and then inside steps we have actions
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Build
+        run: echo "Code Build done"
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Test
+        run: echo "Code Test done"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Deploy
+        run: echo "Code Deploy done"
+ 
+ 
