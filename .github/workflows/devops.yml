@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest     # We require an OS for running the workflow and linux is the best and most widely used OS so hence we are using Ubuntu 
     steps:
       - name: Code checkout                    # name of the step inside the job
-        run: echo "Code checkout done"         # Lastly inside the jobs we have steps and then inside steps we have actions
+        uses: actions/checkout@v7   # action      # Lastly inside the jobs we have steps and then inside steps we have actions
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  #runner
     steps:
       - name: Code Build
-        run: echo "Code Build done"
+        run: echo "Code build done"          #action
   
   test:
     runs-on: ubuntu-latest
